@@ -1,4 +1,4 @@
-const { get } = require("node-emoji");
+
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 

@@ -1,12 +1,15 @@
-const path = require('path');
+
 const router = require('express').Router();
 
 
 // serve the index.html
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.render("homepage")
 });
 
+router.get('/places', (req, res) => {
+  res.render("places")
+});
 
 
 module.exports = router;
