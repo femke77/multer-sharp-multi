@@ -3,7 +3,8 @@
         <h2>Create New Post</h2>
 
 
-        <form class="new-post-form"  action="/api/multiple-upload"
+        <form class="new-post-form" 
+         action="/api/multiple-upload"
             method="POST"
             enctype="multipart/form-data">
             {{!-- <div>
@@ -13,7 +14,7 @@
 
             <div>
                 <label for="content-body">Content</label>
-                <textarea name="content-body"></textarea>
+                <textarea id="content-body" name="content-body"></textarea>
             </div>
 
             {{!-- <div>
@@ -69,5 +70,5 @@
         </div>
     </section>
     {{/if}}
-
-    <script src="/javascript/add-blog-post.js"></script>
+{{!-- 
+    <script src="/javascript/multer-post.js"></script> --}}

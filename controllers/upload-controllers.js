@@ -1,5 +1,6 @@
 const multer = require("multer");
 const sharp = require("sharp");
+const {Picture, Blog} =require('../models') 
 
 const multerStorage = multer.memoryStorage();
 
@@ -21,6 +22,7 @@ const upload = multer({
 const uploadFiles = upload.array("images", 10);
 
 const uploadImages = (req, res, next) => {
+
   uploadFiles(req, res, err => {
     if (err instanceof multer.MulterError) {
       if (err.code === "LIMIT_UNEXPECTED_FILE") {
@@ -57,16 +59,18 @@ const resizeImages = async (req, res, next) => {
   next();
 };
 
-const getResult = async (req, res) => {
+const getResult = async (req, res, next) => {
+  
   if (req.body.images.length <= 0) {
     return res.send(`You must select at least 1 image.`);
   }
-
+  
   const images = req.body.images
     .map(image => "" + image + "")
     .join("");
 
-  return res.send(`Images were uploaded:${images}`);
+  next()
+    // return res.send(`Images were uploaded:${images}`);
 };
 
 module.exports = {

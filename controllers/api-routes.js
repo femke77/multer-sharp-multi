@@ -7,6 +7,7 @@ const {
 } = require("./upload-controllers");
 
 router.post("/multiple-upload", uploadImages, resizeImages, getResult, (req, res)=> {
+console.log(Object.values(req.body)[0]);
   res.json("done")
 });
 
